@@ -1,7 +1,6 @@
 
 from Person import *
 import sqlite3
-import sqlite3
 from sqlite3 import Error
 
 # connection method to database 
@@ -26,7 +25,7 @@ def select_all_tasks(conn):
 
 # insert a person to Persona Table.
 def insert_person(conn):
-
+    
     nombre = input("ingrese su nombre:")
     apellido = input("ingrese su apellido:")
     telefono = input("ingrese su telefono:")
@@ -40,12 +39,31 @@ def insert_person(conn):
     print("Record inserted successfully into persona table ", cur.rowcount)
 
     
+def menu():
+    print("[1]. Ingresar una persona")
+    print("[2]. Mostrar lista person")
+    print("[0]. Salir del Programa")
 
 
 #main method.
 def main():
     database = r"D:\ale\Clases\python\test1.db"
     # create a database connection
+    # menu()
+    # option = int(input("ingresar opcion: "))
+    # while option != 0:
+    #     if option == 1:
+    #         # do something
+    #         pass
+    #     elif option == 2:
+    #         # do something
+    #         pass
+    #     else:
+    #         print("selecion numero disponible en el menu")
+    #     print()
+    #     menu()
+    #     option = int(input("ingresar opcion: "))
+    # print("gracias por usar este programa")
     conn = create_connection(database)
     with conn: 
         print("1. Query all tasks")

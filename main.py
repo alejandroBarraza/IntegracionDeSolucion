@@ -14,7 +14,7 @@ def create_connection(db_file):
     return conn
 
 # return all data from database person 
-def select_all_tasks(conn):
+def select_all_person(conn):
 
     cur = conn.cursor()
     cur.execute("SELECT * FROM persona")
@@ -41,7 +41,7 @@ def insert_person(conn):
     
 def menu():
     print("[1]. Ingresar una persona")
-    print("[2]. Mostrar lista person")
+    print("[2]. Mostrar lista persona")
     print("[0]. Salir del Programa")
 
 
@@ -49,30 +49,28 @@ def menu():
 def main():
     database = r"D:\ale\Clases\descargas educa\pr integracion soluciones\Directorio\Directorio\directorio.db"
     # create a database connection
-    # menu()
-    # option = int(input("ingresar opcion: "))
-    # while option != 0:
-    #     if option == 1:
-    #         # do something
-    #         pass
-    #     elif option == 2:
-    #         # do something
-    #         pass
-    #     else:
-    #         print("selecion numero disponible en el menu")
-    #     print()
-    #     menu()
-    #     option = int(input("ingresar opcion: "))
-    # print("gracias por usar este programa")
     conn = create_connection(database)
-    with conn: 
-        print("1. Query all tasks")
-        insert_person(conn) 
-        select_all_tasks(conn)
 
-    print("connection closed")
-
-
+    menu()
+    option = int(input("ingresar opcion: "))
+    while option != 0:
+        if option == 1:
+            # do something
+            with conn:
+                insert_person(conn) 
+            pass
+        elif option == 2:
+            with conn:
+                print("1. info correspondiente a la tabla persona:")
+                select_all_person(conn)
+            pass
+        else:
+            print("selecione un numero disponible en el menu")
+        print()
+        menu()
+        option = int(input("ingresar opcion: "))
+    print("gracias por usar este programa")
+   
 
 if __name__ == '__main__':
     main()

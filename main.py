@@ -47,7 +47,7 @@ def menu():
 
 #main method.
 def main():
-    database = r"D:\ale\Clases\python\test1.db"
+    database = r"D:\ale\Clases\descargas educa\pr integracion soluciones\Directorio\Directorio\directorio.db"
     # create a database connection
     # menu()
     # option = int(input("ingresar opcion: "))
